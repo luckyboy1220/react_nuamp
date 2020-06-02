@@ -49,7 +49,7 @@ class Directory extends Component {
                 */}
 
                 {/* pass the state down to CampsiteInfo as props*/}
-				<CampsiteInfo selectedCampsite =  {this.state.campsite}/>
+				<CampsiteInfo campsite =  {this.state.selectedCampsite}/>
 
 			</div>
 		);
