@@ -17,24 +17,11 @@ class Directory extends Component {
 		};
 	}
 
+
 	onCampsiteSelect(campsite) {
 		this.setState({ selectedCampsite: campsite });
 	}
 
-	// renderSelectedCampsite(campsite) {
-	//     if (campsite) {
-	//         return (
-	//             <Card>
-	//                 <CardImg top src={campsite.image} alt={campsite.name} />
-	//                 <CardBody>
-	//                     <CardTitle>{campsite.name}</CardTitle>
-	//                     <CardText>{campsite.description}</CardText>
-	//                 </CardBody>
-	//             </Card>
-	//         );
-	//     }
-	//     return <div />;
-	// }
 
 	render() {
 		const directory = this.props.campsites.map((campsite) => {
@@ -60,13 +47,10 @@ class Directory extends Component {
                     
                     <CampsiteInfo />
                 */}
-				{CampsiteInfo}
 
-				{/* <div className="row">
-                    <div className="col-md-5 m-1">
-                        {this.renderSelectedCampsite(this.state.selectedCampsite)}
-                    </div>
-                </div> */}
+                {/* pass the state down to CampsiteInfo as props*/}
+				<CampsiteInfo selectedCampsite =  {this.state.campsite}/>
+
 			</div>
 		);
 	}

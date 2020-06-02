@@ -11,12 +11,6 @@ import {
 class CampsiteInfo extends Component {
 	constructor(props) {
 		super(props);
-
-		// Amy Instructor: this componenent does not have state. delete this state object.
-		// campsite will be called in props
-		this.state = {
-			campsite: null,
-		};
 	}
 
 	renderComments(comments) {
@@ -24,10 +18,7 @@ class CampsiteInfo extends Component {
 			return (
 				<div className='col-md-5 m-1'>
 					<h4>
-						"Comments"
-						{comments.map(
-							(comments) => comments.text + comments.author + comments.date
-						)}
+						Comments
 					</h4>
 
 					{/* Amy Instructor: move the the map() function here. it is not inside of the <h4> tag 
@@ -36,15 +27,16 @@ class CampsiteInfo extends Component {
                     The map() function will return JSX displaying the comments.
 
                     I have this started for you. What is the return JSX for this map() function?
-                    
-                    {comments.map(comments => {
+                */}
+				{comments.map(comments => {
                         return (
+							`text : ${comments.text}
+							 author : ${comments.author}
+							 date : ${comments.date}`
                             // HERE IS WHERE YOU WILL DISPLAY THE COMMENTS
                             // READ TASK 3 AGAIN 
                         );
                     })}
-                
-                */}
 				</div>
 			);
 		}
@@ -67,24 +59,18 @@ class CampsiteInfo extends Component {
 	}
 
 	render() {
-		//Inside its render method, check if an object with the name "campsite" (passed in via props) can be evaluated as truthy (i.e.g is not null, is not undefined)
-		//If so, then return an empty div that has the Bootstrap row class as an attribute.
-		// If not, return an empty <div> with no classes applied to it.
-		// let returnEle = <div></div>;
-		// if(this.props.campsite) {
-		//      returnEle = <div className="row"></div>;
-		// }
+
 		if (this.props.campsite) {
 			return (
 				<div className='row'>
 					{/* Amy Instructor: campsite is not coming from state. see line 65. you have campsite in props. */}
-					{this.renderCampsite(this.state.campsite)}
+				    {this.renderCampsite(this.props.campsite)}
 
 					{/* Amy Instructor: Take a look at the file, campsites.js, in the shared folder.
                         the Comments object is inside of another object that we have in, this.props.campsite.
                         How do you get the comments property from an object?
                     */}
-					{this.renderComments(this.comments)}
+					{this.renderComments(this.props.campsite.comments)}
 				</div>
 			);
 		} else {
