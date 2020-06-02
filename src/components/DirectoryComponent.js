@@ -17,11 +17,9 @@ class Directory extends Component {
 		};
 	}
 
-
 	onCampsiteSelect(campsite) {
 		this.setState({ selectedCampsite: campsite });
 	}
-
 
 	render() {
 		const directory = this.props.campsites.map((campsite) => {
@@ -41,16 +39,8 @@ class Directory extends Component {
 			<div className='container'>
 				<div className='row'>{directory}</div>
 
-				{/* Amy Instructor: CampsiteInfo is a component, not a variable. 
-                
-                    I have this started for you. What props need to be passed in this component?
-                    
-                    <CampsiteInfo />
-                */}
-
-                {/* pass the state down to CampsiteInfo as props*/}
-				<CampsiteInfo campsite =  {this.state.selectedCampsite}/>
-
+				{/* pass the state down to CampsiteInfo as props*/}
+				<CampsiteInfo campsite={this.state.selectedCampsite} />
 			</div>
 		);
 	}
