@@ -19,18 +19,15 @@ class CampsiteInfo extends Component {
 				<div className='col-md-5 m-1'>
 					<h4>Comments</h4>
 
-					{comments.map((comments) => {
-						{
-							/* Amy Instructor: 
-								Have this return JSX instead of a string. 
-								Use the date code provided in Task 3 for the date.								
-							*/
-						}
-
-						return `text : ${comments.text}
-							 author : ${comments.author}
-							 date : ${comments.date}`;
-					})}
+					{comments.map((comment) => {
+       				   return (
+       				    <div>
+       				      <p>{comment.text}</p>
+						  <p>{comment.author}</p>
+						  {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+         			    </div>
+          			    );
+        			})}
 				</div>
 			);
 		}
