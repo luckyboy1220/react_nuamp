@@ -8,21 +8,7 @@ import {
 	CardTitle,
 } from "reactstrap";
 
-function CampsiteInfo(props) {
-    if (props.campsite) {
-        return (
-            <div className="container">
-                <div className="row">
-                    <RenderCampsite campsite={props.campsite} />
-                    <RenderComments comments={props.campsite.comments} />
-                </div>
-            </div>
-        );
-    }
-    return <div />;
-}
-
-	function renderComments({comments}) {
+	function RenderComments({comments}) {
 		if (comments) {
 			return (
 				<div className='col-md-5 m-1'>
@@ -56,6 +42,20 @@ function CampsiteInfo(props) {
 				</Card>
 			</div>
 		);
+	}
+
+	function CampsiteInfo(props) {
+		if (props.campsite) {
+			return (
+				<div className="container">
+					<div className="row">
+						<RenderCampsite campsite={props.campsite} />
+						<RenderComments comments={props.campsite.comments} />
+					</div>
+				</div>
+			);
+		}
+		return <div />;
 	}
 
 export default CampsiteInfo;
