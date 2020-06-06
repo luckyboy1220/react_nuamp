@@ -22,13 +22,12 @@ import {
 								<p>
 									{comment.author}
 									{/* Amy Instructor: move the date code inside this paragraph. */}
-								</p>
-
-								{new Intl.DateTimeFormat("en-US", {
+									{new Intl.DateTimeFormat("en-US", {
 									year: "numeric",
 									month: "short",
 									day: "2-digit",
 								}).format(new Date(Date.parse(comment.date)))}
+								</p>
 							</div>
 						);
 					})}
